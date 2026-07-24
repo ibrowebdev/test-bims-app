@@ -20,9 +20,12 @@ class AuthController extends Controller
 
         $clientId = $config['client_id'];
         $redirectUri = $config['redirect_uri'] ?: route('auth.callback');
+        if (! str_ends_with($redirectUri, '/')) {
+            $redirectUri .= '/';
+        }
         $bimsHost = rtrim($config['host'], '/');
 
-        $url = "{$bimsHost}/oauth/authorize?response_type=code&client_id={$clientId}&redirect_uri=" . urlencode($redirectUri) . "&state=dkdk&prompt=consent";
+        $url = "{$bimsHost}/oauth/authorize?response_type=code&client_id={$clientId}&redirect_uri={$redirectUri}&state=dkdk&prompt=consent";
 
         return redirect($url);
     }
@@ -41,6 +44,9 @@ class AuthController extends Controller
         $config = Config::get('services.bims');
         $bimsHost = rtrim($config['host'], '/');
         $redirectUri = $config['redirect_uri'] ?: route('auth.callback');
+        if (! str_ends_with($redirectUri, '/')) {
+            $redirectUri .= '/';
+        }
 
         $response = Http::withHeaders([
             'Accept' => 'application/json',
