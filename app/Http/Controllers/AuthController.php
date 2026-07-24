@@ -41,9 +41,7 @@ class AuthController extends Controller
         $config = Config::get('services.bims');
         $bimsHost = rtrim($config['host'], '/');
         $redirectUri = $config['redirect_uri'] ?: route('auth.callback');
-        if (! str_ends_with($redirectUri, '/')) {
-            $redirectUri .= '/';
-        }
+
 
         $response = Http::withHeaders([
             'Accept' => 'application/json',
