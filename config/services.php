@@ -36,7 +36,7 @@ return [
     ],
     'bims' => [
         'client_id' => env('BIMS_CLIENT_ID', 'BIMS-25-ZZSGBP'),
-        'client_secret' => env('BIMS_CLIENT_SECRET', '4na9GXevfCCJ7z6qxXjN2TvdwJNVkFhRujSvJ0DL'),
+        'client_secret' => env('BIMS_CLIENT_SECRET', '7CI4CAER6HLeMkaQcyG7KWZt51ssJJu7K3XLPgJj'),
         'redirect_uri' => env('BIMS_REDIRECT_URI', 'http://test-bims-app.test/auth/callback'),
         'host' => env('BIMS_HOST', 'http://account.bims.test'),
     ],
